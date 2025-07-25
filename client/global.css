@@ -1,0 +1,483 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme for DPMPTSP Government Portal
+   * Professional government color scheme with modern UX principles
+  */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 216 28% 7%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 216 28% 7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 216 28% 7%;
+
+    /* Government blue primary */
+    --primary: 214 84% 56%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 216 28% 7%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 214 32% 91%;
+    --accent-foreground: 216 28% 7%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 214 84% 56%;
+
+    --radius: 0.5rem;
+
+    /* Government specific colors */
+    --gov-red: 0 84% 60%;
+    --gov-blue: 214 84% 56%;
+    --gov-green: 142 71% 45%;
+    --gov-yellow: 45 93% 58%;
+    --gov-gray: 215 20.2% 65.1%;
+
+    /* Status colors for permits */
+    --status-pending: 45 93% 58%;
+    --status-processing: 214 84% 56%;
+    --status-approved: 142 71% 45%;
+    --status-rejected: 0 84% 60%;
+
+    --sidebar-background: 214 84% 56%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 214 84% 56%;
+    --sidebar-accent: 214 75% 60%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 214 75% 50%;
+    --sidebar-ring: 0 0% 98%;
+  }
+
+  .dark {
+    /* Softer, warmer dark background - easier on eyes */
+    --background: 222 16% 12%;
+    --foreground: 0 0% 95%;
+
+    /* Slightly lighter cards for better contrast */
+    --card: 220 13% 14%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 13% 14%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Dark primary blue for dark mode - dark text on light backgrounds */
+    --primary: 214 75% 45%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Dark secondary colors - ensure dark text on light backgrounds */
+    --secondary: 0 0% 85%;
+    --secondary-foreground: 222 16% 15%;
+
+    --muted: 220 13% 14%;
+    --muted-foreground: 215 15% 70%;
+
+    --accent: 0 0% 80%;
+    --accent-foreground: 220 13% 14%;
+
+    /* Dark destructive color */
+    --destructive: 0 75% 45%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Softer borders */
+    --border: 222 16% 22%;
+    --input: 220 13% 14%;
+    --ring: 214 65% 65%;
+
+    /* Government specific dark colors */
+    --gov-red: 0 75% 45%;
+    --gov-blue: 214 75% 45%;
+    --gov-green: 142 60% 35%;
+    --gov-yellow: 45 85% 40%;
+    --gov-gray: 215 15% 60%;
+
+    /* Status colors for dark mode */
+    --status-pending: 45 85% 40%;
+    --status-processing: 214 75% 45%;
+    --status-approved: 142 60% 35%;
+    --status-rejected: 0 75% 45%;
+
+    --sidebar-background: 222 16% 12%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 214 75% 45%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 222 16% 18%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 222 16% 22%;
+    --sidebar-ring: 214 65% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  .gov-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--gov-blue)) 0%,
+      hsl(var(--primary)) 100%
+    );
+  }
+
+  /* Better gradient for dark mode */
+  .dark .gov-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(214 45% 35%) 0%,
+      hsl(214 55% 45%) 100%
+    );
+  }
+
+  .gov-card-shadow {
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .status-pending {
+    background-color: hsl(var(--status-pending));
+    color: white;
+  }
+
+  .status-processing {
+    background-color: hsl(var(--status-processing));
+    color: white;
+  }
+
+  .status-approved {
+    background-color: hsl(var(--status-approved));
+    color: white;
+  }
+
+  .status-rejected {
+    background-color: hsl(var(--status-rejected));
+    color: white;
+  }
+
+  /* Dark mode specific status colors */
+  .dark .status-pending {
+    background-color: hsl(var(--status-pending));
+    color: white;
+  }
+
+  .dark .status-processing {
+    background-color: hsl(var(--status-processing));
+    color: white;
+  }
+
+  .dark .status-approved {
+    background-color: hsl(var(--status-approved));
+    color: white;
+  }
+
+  .dark .status-rejected {
+    background-color: hsl(var(--status-rejected));
+    color: white;
+  }
+}
+
+@layer components {
+  .gov-button-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 focus:bg-primary/90 px-6 py-3 rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+
+  .gov-button-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:bg-secondary/80 px-6 py-3 rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+
+  .gov-input {
+    @apply w-full px-3 py-2 border border-input bg-background text-foreground rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-ring transition-colors;
+  }
+
+  .gov-card {
+    @apply bg-card text-card-foreground rounded-lg gov-card-shadow p-6;
+  }
+
+  /* Dark mode specific overrides */
+  .dark .gov-button-primary {
+    color: white;
+  }
+
+  .dark .gov-button-secondary {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+  }
+
+  .dark .gov-input {
+    background-color: hsl(var(--input));
+    color: hsl(var(--foreground));
+    border-color: hsl(var(--border));
+  }
+
+  .dark .gov-card {
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+  }
+}
+
+@layer utilities {
+  /* Dark mode text contrast utilities */
+  .dark-text-auto {
+    @apply dark:text-foreground;
+  }
+
+  .dark-bg-auto {
+    @apply dark:bg-background dark:text-foreground;
+  }
+
+  /* Force dark text on light backgrounds in dark mode */
+  .dark-contrast-text {
+    color: hsl(222 16% 15%);
+  }
+
+  .dark .dark-contrast-text {
+    color: hsl(222 16% 15%) !important;
+  }
+
+  /* Force light text on dark backgrounds */
+  .light-contrast-text {
+    color: hsl(0 0% 95%);
+  }
+
+  .dark .light-contrast-text {
+    color: hsl(0 0% 95%) !important;
+  }
+
+  /* Screen reader only content */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Make screen reader content visible when focused */
+  .sr-only:focus,
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* High contrast focus indicators */
+  .focus-visible\:ring-high-contrast:focus-visible {
+    @apply ring-2 ring-primary ring-offset-2;
+  }
+
+  /* Reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .gov-card-shadow {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  /* Dark theme enhancements for accessibility */
+  .dark {
+    color-scheme: dark;
+  }
+
+  /* Ensure proper contrast for specific elements in dark mode */
+  .dark .bg-white {
+    background-color: white !important;
+    color: hsl(222 16% 15%) !important;
+  }
+
+  /* Override for elements that should keep white text */
+  .dark .gov-gradient,
+  .dark .gov-gradient *,
+  .dark .bg-primary,
+  .dark .bg-primary *,
+  .dark .bg-destructive,
+  .dark .bg-destructive *,
+  .dark header,
+  .dark header *,
+  .dark nav a {
+    color: white !important;
+  }
+
+  /* Ensure proper contrast for buttons in dark mode */
+  .dark [data-secondary="true"] {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+  }
+
+  /* Fix input fields in dark mode */
+  .dark input,
+  .dark textarea,
+  .dark select {
+    background-color: hsl(var(--input));
+    color: hsl(var(--foreground));
+    border-color: hsl(var(--border));
+  }
+
+  /* Fix card text in dark mode */
+  .dark .bg-card,
+  .dark [class*="bg-card"] {
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+  }
+
+  /* Fix muted text areas */
+  .dark .bg-muted,
+  .dark [class*="bg-muted"] {
+    background-color: hsl(var(--muted));
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Comprehensive text color fixes for dark mode */
+  .dark .text-foreground {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .dark .text-muted-foreground {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
+  .dark .text-primary {
+    color: hsl(214 75% 65%) !important;
+  }
+
+  .dark .text-secondary {
+    color: hsl(var(--secondary-foreground)) !important;
+  }
+
+  /* Fix specific common elements */
+  .dark .badge,
+  .dark [data-state="checked"] {
+    background-color: hsl(var(--secondary)) !important;
+    color: hsl(var(--secondary-foreground)) !important;
+  }
+
+  /* Fix dropdown and popover text */
+  .dark [role="menu"],
+  .dark [role="menuitem"],
+  .dark [data-radix-collection-item] {
+    background-color: hsl(var(--popover));
+    color: hsl(var(--popover-foreground));
+  }
+
+  /* Fix form elements specifically */
+  .dark input[type="text"],
+  .dark input[type="email"],
+  .dark input[type="tel"],
+  .dark input[type="search"],
+  .dark textarea {
+    background-color: hsl(var(--input)) !important;
+    color: hsl(var(--foreground)) !important;
+    border-color: hsl(var(--border)) !important;
+  }
+
+  /* Ensure gov-input class has consistent styling in dark mode */
+  .dark .gov-input {
+    background-color: hsl(var(--input)) !important;
+    color: hsl(var(--foreground)) !important;
+    border-color: hsl(var(--border)) !important;
+  }
+
+  /* Force all input elements in contact form to have consistent styling */
+  .dark input,
+  .dark textarea,
+  .dark input[type="email"],
+  .dark input[type="text"],
+  .dark input[type="tel"] {
+    background-color: hsl(var(--input)) !important;
+    color: hsl(var(--foreground)) !important;
+    border-color: hsl(var(--border)) !important;
+  }
+
+  /* Specific override for input elements with bg-background class */
+  .dark input.bg-background,
+  .dark textarea.bg-background {
+    background-color: hsl(var(--input)) !important;
+  }
+
+  .dark input[type="text"]::placeholder,
+  .dark input[type="email"]::placeholder,
+  .dark input[type="tel"]::placeholder,
+  .dark input[type="search"]::placeholder,
+  .dark textarea::placeholder {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
+  /* Improved focus indicators for better visibility */
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  a:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Dark mode specific focus improvements */
+  .dark button:focus-visible,
+  .dark input:focus-visible,
+  .dark select:focus-visible,
+  .dark textarea:focus-visible,
+  .dark a:focus-visible {
+    outline: 2px solid hsl(214 65% 65%);
+    outline-offset: 2px;
+  }
+
+  /* Better shadow for dark mode */
+  .dark .gov-card-shadow {
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.4),
+      0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Ensure consistent text colors across all elements */
+  .dark * {
+    border-color: hsl(var(--border));
+  }
+
+  .dark .border-border {
+    border-color: hsl(var(--border)) !important;
+  }
+
+  .dark .bg-background {
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
+  }
+}
